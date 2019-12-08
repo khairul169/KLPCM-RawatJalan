@@ -24,6 +24,7 @@ class RM_Model extends CI_Model
     {
         $this->db->from($this->_table);
         $this->db->order_by('id', 'desc');
+        $this->db->limit(100);
         return $this->db->get()->result();
     }
 
