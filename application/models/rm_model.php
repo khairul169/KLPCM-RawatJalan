@@ -22,7 +22,9 @@ class RM_Model extends CI_Model
     // Ambil semua data
     public function fetchAll()
     {
-        return $this->db->get($this->_table)->result();
+        $this->db->from($this->_table);
+        $this->db->order_by('id', 'desc');
+        return $this->db->get()->result();
     }
 
     public function getById($id)
@@ -45,7 +47,7 @@ class RM_Model extends CI_Model
     {
         $post = $this->input->post();
 
-        $this->tanggal = time();
+        $this->tanggal = strtotime($post['tanggal']);
         $this->dpjp = $post['dpjp'];
         $this->no_rm = $post['no_rm'];
         $this->poli = $post['poli'];
@@ -68,7 +70,7 @@ class RM_Model extends CI_Model
         $post = $this->input->post();
         $id = $post['update'];
 
-        $this->tanggal = time();
+        $this->tanggal = strtotime($post['tanggal']);
         $this->dpjp = $post['dpjp'];
         $this->no_rm = $post['no_rm'];
         $this->poli = $post['poli'];

@@ -46,7 +46,7 @@ class KLPCM_Poli extends CI_Controller
 				3 => 'Gigi'
 			],
 
-			'tanggal' => '',
+			'tanggal' => date('d-m-Y'),
 			'dpjp' => '',
 			'no_rm' => '',
 			'poli' => '',
@@ -65,7 +65,7 @@ class KLPCM_Poli extends CI_Controller
 			$rmData = $this->rm_model->getById($id);
 
 			if ($rmData) {
-				$data['tanggal'] = $rmData->tanggal;
+				$data['tanggal'] = date('d-m-Y', $rmData->tanggal);
 				$data['dpjp'] = $rmData->dpjp;
 				$data['no_rm'] = $rmData->no_rm;
 				$data['poli'] = $rmData->poli;

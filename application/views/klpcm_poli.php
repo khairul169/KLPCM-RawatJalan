@@ -171,14 +171,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
   let indikator = [];
 
   $(document).ready(function() {
-    // Set current date
-    const date = new Date();
-
-    if (!$('#date').val()) {
-      const dateString = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
-      $('#date').val(dateString);
-    }
-
     // Calculate indicator
     function calculateIndicator() {
       const totalIndikator = indikator.length;

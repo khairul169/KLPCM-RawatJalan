@@ -22,6 +22,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     html,
     body {
       height: 100%;
+      background-color: #eee;
     }
 
     .container {
