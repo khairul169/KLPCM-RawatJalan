@@ -49,30 +49,40 @@ defined('BASEPATH') or exit('No direct script access allowed');
           </div>
           <hr class="mb-2 mt-4">
 
+          <?php
+          if ($message) { ?>
+            <p class="note note-danger">
+              <strong>Login gagal!</strong>
+              <br /><?php echo $message; ?>
+            </p>
+          <?php } ?>
+
           <!--Form-->
-          <form action="">
-            <div class="md-form">
-              <i class="fas fa-user prefix grey-text"></i>
-              <input type="text" id="username" class="form-control">
-              <label for="username">Username</label>
+          <?php echo form_open('login'); ?>
+          <div class="md-form">
+            <i class="fas fa-user prefix grey-text"></i>
+            <input type="text" id="username" name="username" class="form-control" value="<?php echo $username; ?>" />
+            <label for="username">Username</label>
+          </div>
+
+          <div class="md-form pb-3">
+            <i class="fas fa-lock prefix grey-text"></i>
+            <input type="password" id="password" name="password" class="form-control" value="<?php echo $password; ?>" />
+            <label for="password">Password</label>
+          </div>
+
+          <div class="row mb-3">
+            <div class="form-check ml-3 col align-self-center">
+              <input type="checkbox" class="form-check-input" id="remember" checked />
+              <label class="form-check-label" for="remember">Remember me</label>
             </div>
 
-            <div class="md-form pb-3">
-              <i class="fas fa-lock prefix grey-text"></i>
-              <input type="password" id="password" class="form-control">
-              <label for="password">Password</label>
+            <div class="text-center col">
+              <button type="submit" name="login" value="submit" class="btn btn-primary btn-block">
+                Sign in
+              </button>
             </div>
-
-            <div class="row mb-3">
-              <div class="form-check ml-3 col align-self-center">
-                <input type="checkbox" class="form-check-input" id="remember" checked>
-                <label class="form-check-label" for="remember">Remember me</label>
-              </div>
-
-              <div class="text-center col">
-                <button type="submit" class="btn btn-primary btn-block">Sign in</button>
-              </div>
-            </div>
+          </div>
           </form>
         </div>
       </div>
