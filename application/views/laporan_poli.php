@@ -1,15 +1,22 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
+setlocale(LC_ALL, 'id');
 ?>
 <!-- Heading -->
-<div class="card mb-4 wow fadeIn">
+<div class="card mb-4 wow fadeIn d-flex">
 
   <!--Card content-->
-  <div class="card-body">
+  <div class="card-body p-0">
+    <p class="h5 text-center mb-2 mt-4">
+      Kelengkapan Dokumen Rekam Medis
+    </p>
+    <p class="text-center mb-3">
+      Bulan <?php echo strftime('%B %Y'); ?>
+    </p>
 
     <div class="table-responsive">
-      <table class="table table-striped text-center text-nowrap">
-        <thead>
+      <table class="table table-hover text-center text-nowrap">
+        <thead class="blue-grey text-white">
           <tr>
             <th scope="col">#</th>
             <th scope="col">Tanggal</th>
@@ -32,19 +39,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <tr>
               <th scope="row">
                 <a href="<?php echo site_url('klpcm_poli/index/' . $item->id); ?>">
-                  <?php echo $item->id; ?>
+                  <?php echo $item->nomor; ?>
                 </a>
               </th>
               <td><?php echo $item->tanggal; ?></td>
               <td><?php echo $item->no_rm; ?></td>
-              <td><?php echo $item->dpjp; ?></td>
-              <td><?php echo $item->poli; ?></td>
+              <td><?php echo $item->nama_dokter; ?></td>
+              <td><?php echo $item->nama_poli; ?></td>
               <td><?php echo $item->jenis_rm; ?></td>
-              <td class="info-color text-white">
-                <strong><?php echo $item->indikator; ?></strong>
-              </td>
-              <td class="<?php echo $item->kelengkapan ? 'success-color' : 'danger-color'; ?>">
-                <a href="<?php echo site_url('klpcm_poli/index/' . $item->id); ?>" class="text-white">
+              <td><?php echo $item->indikator; ?></td>
+              <td>
+                <a href="<?php echo site_url('klpcm_poli/index/' . $item->id); ?>" class="text-white <?php echo $item->kelengkapan ? 'success-color' : 'danger-color'; ?>" style="padding: 5px 6px; border-radius: 3px;">
                   <strong><?php echo $item->kelengkapan ? 'Lengkap' : 'Tidak Lengkap'; ?></strong>
                 </a>
               </td>

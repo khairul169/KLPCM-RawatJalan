@@ -7,6 +7,8 @@ class KLPCM_Poli extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('rm_model');
+		$this->load->model('dpjp_model');
+		$this->load->model('poli_model');
 		$this->load->library('form_validation');
 	}
 
@@ -32,19 +34,13 @@ class KLPCM_Poli extends CI_Controller
 			}
 		}
 
+		$dpjp_list = $this->dpjp_model->fetchAll();
+		$poli_list = $this->poli_model->fetchAll();
+
 		$data = [
 			'id' => $id,
-			'list_dokter' => [
-				1 => 'dr. Andi',
-				2 => 'dr. Lili',
-				3 => 'dr. Sophie',
-				4 => 'dr. Budi'
-			],
-			'list_poli' => [
-				1 => 'BP',
-				2 => 'KIA',
-				3 => 'Gigi'
-			],
+			'list_dokter' => $dpjp_list,
+			'list_poli' => $poli_list,
 
 			'tanggal' => date('d-m-Y'),
 			'dpjp' => '',

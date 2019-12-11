@@ -3,15 +3,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
 ?>
 <!-- Content -->
 <div class="card mb-4 wow fadeIn">
+  <!-- Card header -->
+  <div class="card-header text-center">Formulir Pengisian KLPCM Rawat Jalan</div>
+
   <div class="card-body">
-    <p class="h5 text-center mb-0 mt-1">
-      Formulir Pengisian KLPCM Rawat Jalan
-    </p>
 
     <div class="px-3">
       <?php echo form_open('klpcm_poli'); ?>
-      <hr class="mt-3 mb-4" />
-      <div class="form-row">
+      <div class="form-row mt-2">
         <!-- Tanggal -->
         <div class="col-4">
           <label>Tanggal</label>
@@ -23,8 +22,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
           <label>DPJP</label>
           <select class="browser-default custom-select" name="dpjp">
             <option value="" <?php if (!$dpjp) echo 'selected'; ?> disabled hidden>Pilih...</option>
-            <?php foreach ($list_dokter as $i => $d) {
-              echo "<option value=\"$i\" " . ($dpjp == $i ? 'selected' : '') . ">$d</option>\n";
+            <?php foreach ($list_dokter as $d) {
+              echo "<option value=\"$d->id\" " . ($dpjp == $d->id ? 'selected' : '') . ">dr. $d->nama_dokter</option>\n";
             } ?>
           </select>
         </div>
@@ -42,8 +41,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
           <label>Poli</label>
           <select class="browser-default custom-select" name="poli">
             <option value="" <?php if (!$poli) echo 'selected'; ?> disabled hidden>Pilih...</option>
-            <?php foreach ($list_poli as $i => $p) {
-              echo "<option value=\"$i\" " . ($poli == $i ? 'selected' : '') . ">$p</option>\n";
+            <?php foreach ($list_poli as $p) {
+              echo "<option value=\"$p->id\" " . ($poli == $p->id ? 'selected' : '') . ">$p->nama</option>\n";
             } ?>
           </select>
         </div>
