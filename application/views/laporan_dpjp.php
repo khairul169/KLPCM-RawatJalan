@@ -11,7 +11,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
       <!--Card content-->
       <div class="card-body p-0">
 
-        <table class="table table-hover text-center text-nowrap m-0">
+        <table class="table table-hover text-center m-0">
           <thead class="blue-grey text-white">
             <tr>
               <th scope="col">No.</th>
