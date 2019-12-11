@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Laporan_Poli extends CI_Controller
+class Laporan_poli extends CI_Controller
 {
 	function __construct()
 	{

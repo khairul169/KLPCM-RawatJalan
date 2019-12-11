@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class KLPCM_Poli extends CI_Controller
+class Klpcm_poli extends CI_Controller
 {
 	function __construct()
 	{

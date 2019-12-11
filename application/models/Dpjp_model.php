@@ -1,6 +1,6 @@
 <?php
 
-class DPJP_Model extends CI_Model
+class Dpjp_model extends CI_Model
 {
     // Nama tabel
     private $_table = 'dpjp';

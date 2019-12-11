@@ -1,6 +1,6 @@
 <?php
 
-class Poli_Model extends CI_Model
+class Poli_model extends CI_Model
 {
     // Nama tabel
     private $_table = 'poli';

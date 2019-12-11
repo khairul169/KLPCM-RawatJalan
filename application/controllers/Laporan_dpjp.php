@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Laporan_DPJP extends CI_Controller
+class Laporan_dpjp extends CI_Controller
 {
 	function __construct()
 	{

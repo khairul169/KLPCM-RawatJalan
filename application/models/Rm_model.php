@@ -1,6 +1,6 @@
 <?php
 
-class RM_Model extends CI_Model
+class Rm_model extends CI_Model
 {
     // Nama tabel
     private $_table = 'rekam_medis';
