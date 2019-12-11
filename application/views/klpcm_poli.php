@@ -12,13 +12,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
       <?php echo form_open('klpcm_poli'); ?>
       <div class="form-row mt-2">
         <!-- Tanggal -->
-        <div class="col-4">
+        <div class="col-sm-4 mb-3">
           <label>Tanggal</label>
           <input placeholder="DD/MM/YYYY" type="text" name="tanggal" id="date" class="form-control" value="<?php echo $tanggal; ?>" />
         </div>
 
         <!-- DPJP -->
-        <div class="col-4">
+        <div class="col-sm-4 mb-3">
           <label>DPJP</label>
           <select class="browser-default custom-select" name="dpjp">
             <option value="" <?php if (!$dpjp) echo 'selected'; ?> disabled hidden>Pilih...</option>
@@ -29,15 +29,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
         </div>
       </div>
 
-      <div class="form-row mt-3">
+      <div class="form-row">
         <!-- No. RM -->
-        <div class="col-4">
+        <div class="col-sm-4 mb-3">
           <label>No. Rekam Medis</label>
           <input type="text" id="rekam-medis" name="no_rm" class="form-control" placeholder="000" value="<?php echo $no_rm; ?>" />
         </div>
 
         <!-- Poli -->
-        <div class="col-4">
+        <div class="col-sm-4 mb-3">
           <label>Poli</label>
           <select class="browser-default custom-select" name="poli">
             <option value="" <?php if (!$poli) echo 'selected'; ?> disabled hidden>Pilih...</option>
@@ -49,7 +49,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 
         <!-- Jenis RM -->
-        <div class="col-4">
+        <div class="col-sm-4 mb-3">
           <label>Jenis RM</label>
           <select class="browser-default custom-select" name="jenis_rm">
             <option value="1" <?php if ($jenis_rm == 1) echo 'selected'; ?>>Baru</option>
@@ -66,7 +66,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <div class="col-8">
           <div class="form-row mt-3 align-items-center">
             <!-- Identitas -->
-            <div class="col">
+            <div class="col-md-6 mb-3">
               <div class="row">
                 <label class="col" for="identitas">Identitas</label>
                 <div class="col custom-control custom-checkbox">
@@ -77,7 +77,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </div>
 
             <!-- Diagnosa -->
-            <div class="col">
+            <div class="col-md-6 mb-3">
               <div class="row">
                 <label class="col" for="diagnosa">Diagnosa</label>
                 <div class="col custom-control custom-checkbox">
@@ -88,9 +88,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </div>
           </div>
 
-          <div class="form-row mt-3 align-items-center">
+          <div class="form-row align-items-center">
             <!-- Anamnesa -->
-            <div class="col">
+            <div class="col-md-6 mb-3">
               <div class="row">
                 <label class="col" for="anamnesa">Anamnesa</label>
                 <div class="col custom-control custom-checkbox">
@@ -101,7 +101,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </div>
 
             <!-- Terapi/Tindakan -->
-            <div class="col">
+            <div class="col-md-6 mb-3">
               <div class="row">
                 <label class="col" for="terapi">Terapi/Tindakan</label>
                 <div class="col custom-control custom-checkbox">
@@ -112,9 +112,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </div>
           </div>
 
-          <div class="form-row mt-3 align-items-center">
+          <div class="form-row align-items-center">
             <!-- Pemeriksaan Fisik -->
-            <div class="col">
+            <div class="col-md-6 mb-3">
               <div class="row">
                 <label class="col" for="pemeriksaan">Pemeriksaan Fisik</label>
                 <div class="col custom-control custom-checkbox">
@@ -125,7 +125,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </div>
 
             <!-- Paraf Dokter -->
-            <div class="col">
+            <div class="col-md-6 mb-3">
               <div class="row">
                 <label class="col" for="paraf">Paraf Dokter</label>
                 <div class="col custom-control custom-checkbox">

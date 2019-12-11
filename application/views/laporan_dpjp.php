@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 ?>
 
 <div class="row">
-  <div class="col">
+  <div class="col-md-6">
     <div class="card mb-4 wow fadeIn">
       <!-- Card header -->
       <div class="card-header text-center">Tabel Kelengkapan DRM</div>
@@ -35,7 +35,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     </div>
   </div>
 
-  <div class="col">
+  <div class="col-md-6">
     <div class="card mb-4 wow fadeIn">
 
       <!--Card content-->
