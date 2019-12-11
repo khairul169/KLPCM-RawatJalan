@@ -11,6 +11,11 @@ class Laporan_dpjp extends CI_Controller
 
 	public function index()
 	{
+		if (!isset($this->session->userdata['logged_in'])) {
+			redirect('login');
+			return;
+		}
+
 		$kelengkapanDRM = $this->dpjp_model->fetchUncompletedDRM();
 		$nomor = 1;
 		foreach ($kelengkapanDRM as $k) {

@@ -11,6 +11,11 @@ class Laporan_poli extends CI_Controller
 
 	public function index()
 	{
+		if (!isset($this->session->userdata['logged_in'])) {
+			redirect('login');
+			return;
+		}
+
 		$items = $this->rm_model->fetchAll();
 		$nomor = 1;
 

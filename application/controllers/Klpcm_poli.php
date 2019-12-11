@@ -14,6 +14,11 @@ class Klpcm_poli extends CI_Controller
 
 	public function index($id = 0)
 	{
+		if (!isset($this->session->userdata['logged_in'])) {
+			redirect('login');
+			return;
+		}
+
 		if ($this->input->post('insert')) {
 			$this->form_validation->set_rules($this->rm_model->rules());
 

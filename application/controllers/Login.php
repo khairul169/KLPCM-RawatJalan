@@ -5,6 +5,11 @@ class Login extends CI_Controller
 {
 	public function index()
 	{
+		if (isset($this->session->userdata['logged_in'])) {
+			redirect('home');
+			return;
+		}
+
 		$formSubmit = $this->input->post('login');
 		$message = '';
 		$username = 'puskesmas';
@@ -15,6 +20,7 @@ class Login extends CI_Controller
 			$message = $this->tryLogin($username, $password);
 
 			if (!$message) {
+				$this->session->set_userdata('logged_in', md5(time()));
 				redirect('home');
 			}
 		}
