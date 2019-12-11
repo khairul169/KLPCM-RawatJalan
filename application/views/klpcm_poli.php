@@ -63,7 +63,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
       <div class="row">
 
-        <div class="col-8">
+        <div class="col-md-8">
           <div class="form-row mt-3 align-items-center">
             <!-- Identitas -->
             <div class="col-md-6 mb-3">
@@ -138,7 +138,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
         </div>
 
-        <div class="col-4">
+        <div class="col-md-4">
           <!-- Total Indikator -->
           <div class="align-items-center">
             <label>Total Indikator</label>
