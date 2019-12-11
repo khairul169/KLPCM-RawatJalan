@@ -4,17 +4,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $title = "KLPCM Puskesmas Arjuno";
 
 $navs = [
-  ['Home', 'home'],
-  ['KLPCM Poli', 'klpcm_poli'],
-  ['Laporan Poli', 'laporan_poli'],
-  ['Laporan DPJP', 'laporan_dpjp'],
-  ['Exit', 'logout']
+  ['Home', 'home', 'fa-home'],
+  ['KLPCM Poli', 'klpcm_poli', 'fa-file-medical'],
+  ['Laporan Poli', 'laporan_poli', 'fa-clipboard'],
+  ['Laporan DPJP', 'laporan_dpjp', 'fa-stethoscope'],
+  ['Exit', 'logout', 'fa-lock']
 ];
 
 foreach ($navs as $i => $nav) {
   $isCurrent = $nav[1] == $this->router->class;
   $navs[$i][1] = site_url($nav[1]);
-  $navs[$i][2] = $isCurrent;
+  $navs[$i][3] = $isCurrent;
 
   if ($isCurrent) {
     $title = $nav[0] . " - " . $title;
@@ -136,7 +136,7 @@ foreach ($navs as $i => $nav) {
             <div class="d-lg-block d-xl-none ml-auto">
               <ul class="navbar-nav">
                 <?php foreach ($navs as $nav) { ?>
-                  <li class="nav-item <?php echo $nav[2] ? 'active' : ''; ?>">
+                  <li class="nav-item <?php echo $nav[3] ? 'active' : ''; ?>">
                     <a class="nav-link waves-effect" href="<?php echo $nav[1]; ?>"><?php echo $nav[0]; ?></a>
                   </li>
                 <?php } ?>
@@ -156,8 +156,8 @@ foreach ($navs as $i => $nav) {
 
         <div class="list-group list-group-flush">
           <?php foreach ($navs as $nav) { ?>
-            <a href="<?php echo $nav[1]; ?>" class="list-group-item <?php echo $nav[2] ? 'active' : 'list-group-item-action' ?> waves-effect">
-              <i class="fa fa-user mr-3"></i><?php echo $nav[0]; ?></a>
+            <a href="<?php echo $nav[1]; ?>" class="list-group-item <?php echo $nav[3] ? 'active' : 'list-group-item-action' ?> waves-effect">
+              <i class="fa <?php echo $nav[2]; ?> mr-3"></i><?php echo $nav[0]; ?></a>
           <?php } ?>
         </div>
 
