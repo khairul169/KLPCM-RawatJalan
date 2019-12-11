@@ -68,8 +68,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <!-- Identitas -->
             <div class="col-md-6 mb-3">
               <div class="row">
-                <label class="col" for="identitas">Identitas</label>
-                <div class="col custom-control custom-checkbox">
+                <label class="col-8" for="identitas">Identitas</label>
+                <div class="col-4 custom-control custom-checkbox">
                   <input type="checkbox" name="identitas" class="indikator custom-control-input" id="identitas" <?php if ($identitas == 1) echo 'checked'; ?> />
                   <label class="custom-control-label" for="identitas">Ada</label>
                 </div>
@@ -79,8 +79,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <!-- Diagnosa -->
             <div class="col-md-6 mb-3">
               <div class="row">
-                <label class="col" for="diagnosa">Diagnosa</label>
-                <div class="col custom-control custom-checkbox">
+                <label class="col-8" for="diagnosa">Diagnosa</label>
+                <div class="col-4 custom-control custom-checkbox">
                   <input type="checkbox" name="diagnosa" class="indikator custom-control-input" id="diagnosa" <?php if ($diagnosa == 1) echo 'checked'; ?> />
                   <label class="custom-control-label" for="diagnosa">Ada</label>
                 </div>
@@ -92,8 +92,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <!-- Anamnesa -->
             <div class="col-md-6 mb-3">
               <div class="row">
-                <label class="col" for="anamnesa">Anamnesa</label>
-                <div class="col custom-control custom-checkbox">
+                <label class="col-8" for="anamnesa">Anamnesa</label>
+                <div class="col-4 custom-control custom-checkbox">
                   <input type="checkbox" name="anamnesa" class="indikator custom-control-input" id="anamnesa" <?php if ($anamnesa == 1) echo 'checked'; ?> />
                   <label class="custom-control-label" for="anamnesa">Ada</label>
                 </div>
@@ -103,8 +103,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <!-- Terapi/Tindakan -->
             <div class="col-md-6 mb-3">
               <div class="row">
-                <label class="col" for="terapi">Terapi/Tindakan</label>
-                <div class="col custom-control custom-checkbox">
+                <label class="col-8" for="terapi">Terapi/Tindakan</label>
+                <div class="col-4 custom-control custom-checkbox">
                   <input type="checkbox" name="terapi" class="indikator custom-control-input" id="terapi" <?php if ($terapi == 1) echo 'checked'; ?> />
                   <label class="custom-control-label" for="terapi">Ada</label>
                 </div>
@@ -116,8 +116,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <!-- Pemeriksaan Fisik -->
             <div class="col-md-6 mb-3">
               <div class="row">
-                <label class="col" for="pemeriksaan">Pemeriksaan Fisik</label>
-                <div class="col custom-control custom-checkbox">
+                <label class="col-8" for="pemeriksaan">Pemeriksaan Fisik</label>
+                <div class="col-4 custom-control custom-checkbox">
                   <input type="checkbox" name="pemeriksaan" class="indikator custom-control-input" id="pemeriksaan" <?php if ($pemeriksaan == 1) echo 'checked'; ?> />
                   <label class="custom-control-label" for="pemeriksaan">Ada</label>
                 </div>
@@ -127,8 +127,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <!-- Paraf Dokter -->
             <div class="col-md-6 mb-3">
               <div class="row">
-                <label class="col" for="paraf">Paraf Dokter</label>
-                <div class="col custom-control custom-checkbox">
+                <label class="col-8" for="paraf">Paraf Dokter</label>
+                <div class="col-4 custom-control custom-checkbox">
                   <input type="checkbox" name="paraf" class="indikator custom-control-input" id="paraf" <?php if ($paraf == 1) echo 'checked'; ?> />
                   <label class="custom-control-label" for="paraf">Ada</label>
                 </div>
