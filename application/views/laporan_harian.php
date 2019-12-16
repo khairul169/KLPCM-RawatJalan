@@ -11,14 +11,14 @@ setlocale(LC_ALL, 'id');
       Kelengkapan Dokumen Rekam Medis
     </p>
     <p class="text-center mb-3">
-      Bulan <?php echo strftime('%B %Y'); ?>
+      <?php echo strftime('%A, %e %B %Y'); ?>
     </p>
 
     <div class="table-responsive">
       <table class="table table-hover text-center text-nowrap">
-        <thead class="blue-grey text-white">
+        <thead class="stylish-color text-white">
           <tr>
-            <th scope="col">#</th>
+            <th scope="col">No</th>
             <th scope="col">Tanggal</th>
             <th scope="col">No. RM</th>
             <th scope="col">DPJP</th>
@@ -36,11 +36,9 @@ setlocale(LC_ALL, 'id');
         </thead>
         <tbody>
           <?php foreach ($items as $item) { ?>
-            <tr>
+            <tr style="cursor: pointer;" data-href="<?php echo site_url('klpcm_poli/index/' . $item->id); ?>">
               <th scope="row">
-                <a href="<?php echo site_url('klpcm_poli/index/' . $item->id); ?>">
-                  <?php echo $item->nomor; ?>
-                </a>
+                <?php echo $item->nomor; ?>
               </th>
               <td><?php echo $item->tanggal; ?></td>
               <td><?php echo $item->no_rm; ?></td>
@@ -49,9 +47,9 @@ setlocale(LC_ALL, 'id');
               <td><?php echo $item->jenis_rm; ?></td>
               <td><?php echo $item->indikator; ?></td>
               <td>
-                <a href="<?php echo site_url('klpcm_poli/index/' . $item->id); ?>" class="text-white <?php echo $item->kelengkapan ? 'success-color' : 'danger-color'; ?>" style="padding: 5px 6px; border-radius: 3px;">
+                <span class="text-white <?php echo $item->kelengkapan ? 'success-color' : 'danger-color'; ?>" style="padding: 5px 6px; border-radius: 3px;">
                   <strong><?php echo $item->kelengkapan ? 'Lengkap' : 'Tidak Lengkap'; ?></strong>
-                </a>
+                </span>
               </td>
               <td><?php echo $item->identitas; ?></td>
               <td><?php echo $item->anamnesa; ?></td>
@@ -67,3 +65,9 @@ setlocale(LC_ALL, 'id');
 
   </div>
 </div>
+
+<script>
+  $('tr[data-href]').on("click", function() {
+    document.location = $(this).data('href');
+  });
+</script>

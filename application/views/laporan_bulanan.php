@@ -16,49 +16,36 @@ setlocale(LC_ALL, 'id');
 
     <div class="table-responsive">
       <table class="table table-hover text-center text-nowrap">
-        <thead class="blue-grey text-white">
+        <thead class="stylish-color text-white">
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">Tanggal</th>
-            <th scope="col">No. RM</th>
-            <th scope="col">DPJP</th>
-            <th scope="col">Poli</th>
-            <th scope="col">Jenis RM</th>
-            <th scope="col">Total Indikator</th>
-            <th scope="col">Nilai Kelengkapan</th>
-            <th scope="col">Identitas</th>
-            <th scope="col">Anamnesa</th>
-            <th scope="col">Pemeriksaan</th>
-            <th scope="col">Diagnosa</th>
-            <th scope="col">Terapi</th>
-            <th scope="col">Paraf</th>
+            <th scope="col" rowspan="2" class="align-middle">No</th>
+            <th scope="col" rowspan="2" class="align-middle">Tanggal</th>
+            <th scope="col" colspan="4">Bulan</th>
+            <th scope="col" colspan="2">Mutu</th>
+            <th scope="col" rowspan="2" class="align-middle">Lainnya</th>
+          </tr>
+          <tr class="stylish-color-dark">
+            <th scope="col">Lengkap</th>
+            <th scope="col">Tidak Lengkap</th>
+            <th scope="col">Jumlah</th>
+            <th scope="col">Mutu</th>
+            <th scope="col">Lengkap</th>
+            <th scope="col">Tidak Lengkap</th>
           </tr>
         </thead>
         <tbody>
           <?php foreach ($items as $item) { ?>
             <tr>
               <th scope="row">
-                <a href="<?php echo site_url('klpcm_poli/index/' . $item->id); ?>">
-                  <?php echo $item->nomor; ?>
-                </a>
+                <?php echo $item->nomor; ?>
               </th>
               <td><?php echo $item->tanggal; ?></td>
-              <td><?php echo $item->no_rm; ?></td>
-              <td><?php echo $item->nama_dokter; ?></td>
-              <td><?php echo $item->nama_poli; ?></td>
-              <td><?php echo $item->jenis_rm; ?></td>
-              <td><?php echo $item->indikator; ?></td>
-              <td>
-                <a href="<?php echo site_url('klpcm_poli/index/' . $item->id); ?>" class="text-white <?php echo $item->kelengkapan ? 'success-color' : 'danger-color'; ?>" style="padding: 5px 6px; border-radius: 3px;">
-                  <strong><?php echo $item->kelengkapan ? 'Lengkap' : 'Tidak Lengkap'; ?></strong>
-                </a>
-              </td>
-              <td><?php echo $item->identitas; ?></td>
-              <td><?php echo $item->anamnesa; ?></td>
-              <td><?php echo $item->pemeriksaan; ?></td>
-              <td><?php echo $item->diagnosa; ?></td>
-              <td><?php echo $item->terapi; ?></td>
-              <td><?php echo $item->paraf; ?></td>
+              <td><?php echo $item->lengkap; ?></td>
+              <td><?php echo $item->tidak_lengkap; ?></td>
+              <td><?php echo $item->jumlah; ?></td>
+              <td><?php echo number_format($item->mutu, 1, ',', ''); ?></td>
+              <td><?php echo number_format($item->mutu, 1, ',', ''); ?></td>
+              <td><?php echo number_format($item->mutu_tl, 1, ',', ''); ?></td>
             </tr>
           <?php } ?>
         </tbody>

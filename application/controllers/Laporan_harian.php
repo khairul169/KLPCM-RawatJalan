@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Laporan_poli extends CI_Controller
+class Laporan_harian extends CI_Controller
 {
 	function __construct()
 	{
@@ -37,7 +37,7 @@ class Laporan_poli extends CI_Controller
 		];
 
 		$this->load->view('header');
-		$this->load->view('laporan_poli', $data);
+		$this->load->view('laporan_harian', $data);
 		$this->load->view('footer');
 	}
 }

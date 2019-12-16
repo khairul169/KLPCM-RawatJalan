@@ -33,7 +33,9 @@ class Klpcm_poli extends CI_Controller
 			$this->form_validation->set_rules($this->rm_model->rules());
 
 			if ($this->form_validation->run()) {
-				$message = 'Berhasil mengubah data!';
+				$resultId = $this->rm_model->update();
+				redirect('klpcm_poli/index/' . $resultId);
+				return;
 			}
 		}
 

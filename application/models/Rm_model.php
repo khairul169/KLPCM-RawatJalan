@@ -28,7 +28,7 @@ class Rm_model extends CI_Model
         $this->db->from($this->_table . ' rm');
         $this->db->join('dpjp', 'rm.dpjp = dpjp.id', 'left');
         $this->db->join('poli', 'rm.poli = poli.id', 'left');
-        $this->db->where("FROM_UNIXTIME(rm.tanggal,'%Y-%m')", date('Y-m'));
+        $this->db->where("FROM_UNIXTIME(rm.tanggal,'%e-%Y-%m')", strftime('%e-%Y-%m'));
         $this->db->order_by('rm.tanggal desc, rm.id desc');
         $this->db->limit(100);
         $result = $this->db->get()->result();
@@ -57,6 +57,8 @@ class Rm_model extends CI_Model
         $this->no_rm = $post['no_rm'];
         $this->poli = $post['poli'];
         $this->jenis_rm = $post['jenis_rm'];
+
+        echo $this->tanggal;
 
         $this->identitas = !empty($post['identitas']) ? 1 : 0;
         $this->anamnesa = !empty($post['anamnesa']) ? 1 : 0;
@@ -105,5 +107,20 @@ class Rm_model extends CI_Model
         $id = $post['update'];
         $this->db->update($this->_table, $this, ['id' => $id]);
         return $id;
+    }
+
+    // Ambil data bulanan
+    public function fetchMonthly()
+    {
+        $this->db->select("rm.tanggal, COUNT(rm.id) as jumlah, COUNT(l.id) as lengkap, COUNT(tl.id) as tidak_lengkap");
+        $this->db->from($this->_table . ' rm');
+        $this->db->join('rekam_medis l', 'rm.id = l.id AND l.kelengkapan = 1', 'left');
+        $this->db->join('rekam_medis tl', 'rm.id = tl.id AND tl.kelengkapan = 0', 'left');
+        $this->db->where("FROM_UNIXTIME(rm.tanggal,'%Y-%m')", date('Y-m'));
+        $this->db->group_by("FROM_UNIXTIME(rm.tanggal,'%e')");
+        $this->db->order_by('rm.tanggal desc');
+        $this->db->limit(100);
+        $result = $this->db->get()->result();
+        return $result;
     }
 }
