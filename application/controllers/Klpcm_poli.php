@@ -19,13 +19,13 @@ class Klpcm_poli extends CI_Controller
 			return;
 		}
 
+		$message = null;
+
 		if ($this->input->post('insert')) {
 			$this->form_validation->set_rules($this->rm_model->rules());
 
 			if ($this->form_validation->run()) {
-				$resultId = $this->rm_model->insert();
-				redirect('klpcm_poli/index/' . $resultId);
-				return;
+				$message = 'Berhasil memasukkan data!';
 			}
 		}
 
@@ -33,9 +33,7 @@ class Klpcm_poli extends CI_Controller
 			$this->form_validation->set_rules($this->rm_model->rules());
 
 			if ($this->form_validation->run()) {
-				$resultId = $this->rm_model->update();
-				redirect('klpcm_poli/index/' . $resultId);
-				return;
+				$message = 'Berhasil mengubah data!';
 			}
 		}
 
@@ -58,7 +56,9 @@ class Klpcm_poli extends CI_Controller
 			'pemeriksaan' => 0,
 			'diagnosa' => 0,
 			'terapi' => 0,
-			'paraf' => 0
+			'paraf' => 0,
+
+			'message' => $message
 		];
 
 		if ($id) {

@@ -1,6 +1,15 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 ?>
+<?php if ($message) { ?>
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <?php echo $message; ?>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<?php } ?>
+
 <!-- Content -->
 <div class="card mb-4 wow fadeIn">
   <!-- Card header -->
@@ -17,11 +26,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
           <input placeholder="DD/MM/YYYY" type="text" name="tanggal" id="date" class="form-control" value="<?php echo $tanggal; ?>" />
         </div>
 
-        <!-- DPJP -->
+        <!-- PPA -->
         <div class="col-sm-4 mb-3">
-          <label>DPJP</label>
+          <label>PPA</label>
           <select class="browser-default custom-select" name="dpjp">
-            <option value="" <?php if (!$dpjp) echo 'selected'; ?> disabled hidden>Pilih...</option>
+            <option value="" <?php if (!$dpjp) echo 'selected'; ?> disabled hidden>Pilih PPA..</option>
             <?php foreach ($list_dokter as $d) {
               echo "<option value=\"$d->id\" " . ($dpjp == $d->id ? 'selected' : '') . ">dr. $d->nama_dokter</option>\n";
             } ?>
@@ -33,14 +42,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <!-- No. RM -->
         <div class="col-sm-4 mb-3">
           <label>No. Rekam Medis</label>
-          <input type="text" id="rekam-medis" name="no_rm" class="form-control" placeholder="000" value="<?php echo $no_rm; ?>" />
+          <input type="text" id="rekam-medis" name="no_rm" class="form-control" placeholder="Masukkan nomor RM.." value="<?php echo $no_rm; ?>" />
         </div>
 
         <!-- Poli -->
         <div class="col-sm-4 mb-3">
           <label>Poli</label>
           <select class="browser-default custom-select" name="poli">
-            <option value="" <?php if (!$poli) echo 'selected'; ?> disabled hidden>Pilih...</option>
+            <option value="" <?php if (!$poli) echo 'selected'; ?> disabled hidden>Pilih poli..</option>
             <?php foreach ($list_poli as $p) {
               echo "<option value=\"$p->id\" " . ($poli == $p->id ? 'selected' : '') . ">$p->nama</option>\n";
             } ?>
@@ -157,7 +166,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
       <div class="row mt-4">
         <button type="submit" name="<?php echo $id ? 'update' : 'insert'; ?>" value="<?php echo $id ? $id : '1'; ?>" class="col btn btn-success">Simpan</button>
-        <a href="<?php echo site_url('klpcm_poli'); ?>" class="col btn btn-danger">Kembali</a>
+        <button type="reset" class="col btn btn-danger">Hapus</button>
       </div>
 
       <?php echo form_close(); ?>

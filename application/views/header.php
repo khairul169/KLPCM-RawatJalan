@@ -6,8 +6,8 @@ $title = "KLPCM Puskesmas Arjuno";
 $navs = [
   ['Home', 'home', 'fa-home'],
   ['KLPCM Poli', 'klpcm_poli', 'fa-file-medical'],
-  ['Laporan Poli', 'laporan_poli', 'fa-clipboard'],
-  ['Laporan DPJP', 'laporan_dpjp', 'fa-stethoscope'],
+  ['Laporan Harian', 'laporan_poli', 'fa-clipboard'],
+  ['Laporan PPA', 'laporan_dpjp', 'fa-stethoscope'],
   ['Exit', 'logout', 'fa-lock']
 ];
 
