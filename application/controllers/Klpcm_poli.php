@@ -25,6 +25,7 @@ class Klpcm_poli extends CI_Controller
 			$this->form_validation->set_rules($this->rm_model->rules());
 
 			if ($this->form_validation->run()) {
+				$this->rm_model->insert();
 				$message = 'Berhasil memasukkan data!';
 			}
 		}
