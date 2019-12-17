@@ -4,11 +4,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $title = "KLPCM Puskesmas Arjuno";
 
 $navs = [
-  ['Home', 'home', 'fa-home'],
+  ['Kelola PPA', 'kelola_ppa', 'fa-stethoscope'],
   ['KLPCM Poli', 'klpcm_poli', 'fa-file-medical'],
-  ['Laporan Harian', 'laporan_harian', 'fa-clipboard'],
-  ['Laporan Bulanan', 'laporan_bulanan', 'fa-clipboard'],
-  ['Laporan PPA', 'laporan_dpjp', 'fa-stethoscope'],
+  ['Laporan Harian', 'laporan_harian', 'fa-calendar-day'],
+  ['Laporan Bulanan', 'laporan_bulanan', 'fa-chart-line'],
+  ['Laporan PPA', 'laporan_dpjp', 'fa-chart-pie'],
   ['Exit', 'logout', 'fa-lock']
 ];
 

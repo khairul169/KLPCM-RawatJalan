@@ -32,8 +32,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
           <select class="browser-default custom-select" name="dpjp">
             <option value="" <?php if (!$dpjp) echo 'selected'; ?> disabled hidden>Pilih PPA..</option>
             <?php foreach ($list_dokter as $d) {
-              echo "<option value=\"$d->id\" " . ($dpjp == $d->id ? 'selected' : '') . ">dr. $d->nama_dokter</option>\n";
-            } ?>
+                                                                                                              echo "<option value=\"$d->id\" " . ($dpjp == $d->id ? 'selected' : '') . ">dr. $d->nama_dokter</option>\n";
+                                                                                                            } ?>
           </select>
         </div>
       </div>
@@ -51,8 +51,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
           <select class="browser-default custom-select" name="poli">
             <option value="" <?php if (!$poli) echo 'selected'; ?> disabled hidden>Pilih poli..</option>
             <?php foreach ($list_poli as $p) {
-              echo "<option value=\"$p->id\" " . ($poli == $p->id ? 'selected' : '') . ">$p->nama</option>\n";
-            } ?>
+                                                                                                                            echo "<option value=\"$p->id\" " . ($poli == $p->id ? 'selected' : '') . ">$p->nama</option>\n";
+                                                                                                                          } ?>
           </select>
         </div>
 
@@ -166,7 +166,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
       <div class="row mt-4">
         <button type="submit" name="<?php echo $id ? 'update' : 'insert'; ?>" value="<?php echo $id ? $id : '1'; ?>" class="col btn btn-success">Simpan</button>
-        <button type="reset" class="col btn btn-danger">Hapus</button>
+        <?php if ($id) { ?>
+          <a href="<?php echo site_url('klpcm_poli/remove/' . $id) ?>" class="col btn btn-danger">Hapus</a>
+        <?php } else { ?>
+          <button type="reset" class="col btn btn-danger">Hapus</button>
+        <?php } ?>
       </div>
 
       <?php echo form_close(); ?>

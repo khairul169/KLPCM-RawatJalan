@@ -15,7 +15,7 @@ setlocale(LC_ALL, 'id');
     </p>
 
     <div class="table-responsive">
-      <table class="table table-hover text-center text-nowrap">
+      <table class="table table-hover text-center text-nowrap mb-0">
         <thead class="stylish-color text-white">
           <tr>
             <th scope="col">No</th>
@@ -35,7 +35,11 @@ setlocale(LC_ALL, 'id');
           </tr>
         </thead>
         <tbody>
-          <?php foreach ($items as $item) { ?>
+          <?php if (!sizeof($items)) { ?>
+            <tr>
+              <td colspan="14">Tidak ada data.</td>
+            </tr>
+          <?php } else foreach ($items as $item) { ?>
             <tr style="cursor: pointer;" data-href="<?php echo site_url('klpcm_poli/index/' . $item->id); ?>">
               <th scope="row">
                 <?php echo $item->nomor; ?>
