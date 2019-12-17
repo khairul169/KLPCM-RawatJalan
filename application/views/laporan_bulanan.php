@@ -89,7 +89,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
   </div>
 </div>
 
-<div class="d-flex justify-content-end">
+<div class="d-flex justify-content-end mb-4">
   <button type="button" class="btn btn-primary m-0" id="print-btn"><i class="fa fa-print mr-3"></i>Print</button>
 </div>
 
