@@ -1,6 +1,29 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 ?>
+
+<style type="text/css">
+  @media print {
+    @page {
+      size: landscape;
+    }
+
+    body {
+      -webkit-transform: scale(0.85);
+      /* Saf3.1+, Chrome */
+      -moz-transform: scale(0.85);
+      /* FF3.5+ */
+      -ms-transform: scale(0.85);
+      /* IE9 */
+      -o-transform: scale(0.85);
+      /* Opera 10.5+ */
+      transform: scale(0.85);
+      margin: -80px -100px 0;
+      /* big hack to reposition the page top the top and left of the viewer control */
+    }
+  }
+</style>
+
 <!-- Heading -->
 <div class="card mb-4 wow fadeIn d-flex">
 
