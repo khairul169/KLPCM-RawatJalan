@@ -10,6 +10,27 @@ defined('BASEPATH') or exit('No direct script access allowed');
   </div>
 <?php } ?>
 
+<!-- Modal -->
+<div class="modal fade" id="modal-remove-rm" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Hapus Rekam Medis?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Apakah anda yakin ingin menghapus data rekam medis?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
+        <a href="<?php echo site_url('klpcm_poli/remove/' . $id) ?>" class="btn btn-primary">Hapus</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Content -->
 <div class="card mb-4 wow fadeIn">
   <!-- Card header -->
@@ -23,7 +44,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <!-- Tanggal -->
         <div class="col-sm-4 mb-3">
           <label>Tanggal</label>
-          <input placeholder="DD/MM/YYYY" type="text" name="tanggal" id="date" class="form-control" value="<?php echo $tanggal; ?>" />
+          <input type="text" name="tanggal" id="date" class="col form-control" placeholder="DD/MM/YYYY" value="<?php echo $tanggal; ?>" style="position: relative;" />
         </div>
 
         <!-- PPA -->
@@ -31,9 +52,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
           <label>PPA</label>
           <select class="browser-default custom-select" name="dpjp">
             <option value="" <?php if (!$dpjp) echo 'selected'; ?> disabled hidden>Pilih PPA..</option>
-            <?php foreach ($list_dokter as $d) {
-                                                                                                              echo "<option value=\"$d->id\" " . ($dpjp == $d->id ? 'selected' : '') . ">dr. $d->nama_dokter</option>\n";
-                                                                                                            } ?>
+            <?php foreach ($list_dokter as $d) { ?>
+              <option value="<?php echo $d->id; ?>" <?php if ($dpjp == $d->id) echo 'selected'; ?>><?php echo $d->nama_dokter; ?></option>
+            <?php } ?>
           </select>
         </div>
       </div>
@@ -50,9 +71,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
           <label>Poli</label>
           <select class="browser-default custom-select" name="poli">
             <option value="" <?php if (!$poli) echo 'selected'; ?> disabled hidden>Pilih poli..</option>
-            <?php foreach ($list_poli as $p) {
-                                                                                                                            echo "<option value=\"$p->id\" " . ($poli == $p->id ? 'selected' : '') . ">$p->nama</option>\n";
-                                                                                                                          } ?>
+            <?php foreach ($list_poli as $p) { ?>
+              <option value="<?php echo $p->id; ?>" <?php if ($poli == $p->id) echo 'selected'; ?>><?php echo $p->nama; ?></option>
+            <?php } ?>
           </select>
         </div>
 
@@ -167,10 +188,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
       <div class="row mt-4">
         <button type="submit" name="<?php echo $id ? 'update' : 'insert'; ?>" value="<?php echo $id ? $id : '1'; ?>" class="col btn btn-success">Simpan</button>
         <?php if ($id) { ?>
-          <a href="<?php echo site_url('klpcm_poli/remove/' . $id) ?>" class="col btn btn-danger">Hapus</a>
-        <?php } else { ?>
-          <button type="reset" class="col btn btn-danger">Hapus</button>
-        <?php } ?>
+          <button type="button" class="col btn btn-danger" data-toggle="modal" data-target="#modal-remove-rm">Hapus</a>
+          <?php } else { ?>
+            <button type="reset" class="col btn btn-danger">Hapus</button>
+          <?php } ?>
       </div>
 
       <?php echo form_close(); ?>
