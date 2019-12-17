@@ -24,6 +24,10 @@ class Laporan_bulanan extends CI_Controller
 			'mutu' => 0.0,
 			'mutu_tl' => 0.0
 		];
+		$mutu_total = 0.0;
+		$mutu_num = 0;
+		$mutuTl_total = 0.0;
+		$mutuTl_num = 0;
 
 		foreach ($items as $item) {
 			$item->nomor = $nomor++;
@@ -33,9 +37,14 @@ class Laporan_bulanan extends CI_Controller
 
 			$jumlah['lengkap'] += $item->lengkap;
 			$jumlah['tidak_lengkap'] += $item->tidak_lengkap;
-			$jumlah['mutu'] += $item->mutu;
-			$jumlah['mutu_tl'] += $item->mutu_tl;
+			$mutu_total += $item->mutu;
+			$mutu_num += 1;
+			$mutuTl_total += $item->mutu_tl;
+			$mutuTl_num += 1;
 		}
+
+		$jumlah['mutu'] = ($mutu_total) / $mutu_num;
+		$jumlah['mutu_tl'] = ($mutuTl_total) / $mutuTl_num;
 
 		$data = [
 			'items' => $items,
