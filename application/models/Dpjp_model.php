@@ -5,6 +5,9 @@ class Dpjp_model extends CI_Model
     // Nama tabel
     private $_table = 'dpjp';
 
+    // Field tabel
+    public $nama_dokter;
+
     // Ambil semua data
     public function fetchAll()
     {
@@ -20,5 +23,25 @@ class Dpjp_model extends CI_Model
         $this->db->where('rm.kelengkapan = 0');
         $this->db->having('drm > 0');
         return $this->db->get()->result();
+    }
+
+    public function rules()
+    {
+        return [
+            ['field' => 'nama_dokter', 'label' => 'Nama Dokter', 'rules' => 'required']
+        ];
+    }
+
+    public function insert()
+    {
+        $post = $this->input->post();
+        $this->nama_dokter = $post['nama_dokter'];
+        $this->db->insert($this->_table, $this);
+        return $this->db->insert_id();
+    }
+
+    public function remove($id)
+    {
+        $this->db->delete($this->_table, 'id=' . $id);
     }
 }

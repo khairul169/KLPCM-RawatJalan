@@ -15,15 +15,19 @@ defined('BASEPATH') or exit('No direct script access allowed');
           <thead class="blue-grey text-white">
             <tr>
               <th scope="col">No.</th>
-              <th scope="col">Nama Dokter</th>
+              <th scope="col" class="text-left">Nama Dokter</th>
               <th scope="col">Jumlah DRM Tidak Lengkap</th>
             </tr>
           </thead>
           <tbody>
-            <?php foreach ($kelengkapan_drm as $k) { ?>
+            <?php if (!sizeof($kelengkapan_drm)) { ?>
+              <tr>
+                <td colspan="3">Tidak ada data.</td>
+              </tr>
+            <?php } else foreach ($kelengkapan_drm as $k) { ?>
               <tr>
                 <th><?php echo $k->nomor; ?></th>
-                <td>dr. <?php echo $k->nama_dokter; ?></td>
+                <td class="text-left">dr. <?php echo $k->nama_dokter; ?></td>
                 <td><?php echo $k->drm; ?></td>
               </tr>
             <?php } ?>
@@ -50,13 +54,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
 </div>
 
 <?php
-$chartLabels = [];
-$chartValues = [];
+                                        $chartLabels = [];
+                                        $chartValues = [];
 
-foreach ($kelengkapan_drm as $k) {
-  $chartLabels[] = 'dr. ' . $k->nama_dokter;
-  $chartValues[] = $k->drm;
-}
+                                        foreach ($kelengkapan_drm as $k) {
+                                          $chartLabels[] = 'dr. ' . $k->nama_dokter;
+                                          $chartValues[] = $k->drm;
+                                        }
 ?>
 
 <script type="text/javascript">

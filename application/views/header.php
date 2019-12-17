@@ -4,8 +4,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $title = "KLPCM Puskesmas Arjuno";
 
 $navs = [
-  ['Kelola PPA', 'kelola_ppa', 'fa-stethoscope'],
   ['KLPCM Poli', 'klpcm_poli', 'fa-file-medical'],
+  ['Kelola PPA', 'kelola_ppa', 'fa-stethoscope'],
   ['Laporan Harian', 'laporan_harian', 'fa-calendar-day'],
   ['Laporan Bulanan', 'laporan_bulanan', 'fa-chart-line'],
   ['Laporan PPA', 'laporan_dpjp', 'fa-chart-pie'],
@@ -158,7 +158,7 @@ foreach ($navs as $i => $nav) {
         <div class="list-group list-group-flush">
           <?php foreach ($navs as $nav) { ?>
             <a href="<?php echo $nav[1]; ?>" class="list-group-item <?php echo $nav[3] ? 'active' : 'list-group-item-action' ?> waves-effect">
-              <i class="fa <?php echo $nav[2]; ?> mr-3"></i><?php echo $nav[0]; ?></a>
+              <i class="fa <?php echo $nav[2]; ?> mr-3" style="width: 16px;"></i><?php echo $nav[0]; ?></a>
           <?php } ?>
         </div>
 

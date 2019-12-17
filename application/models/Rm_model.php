@@ -123,4 +123,10 @@ class Rm_model extends CI_Model
         $result = $this->db->get()->result();
         return $result;
     }
+
+    // Remove row
+    public function remove($id)
+    {
+        $this->db->delete($this->_table, 'id=' . $id);
+    }
 }

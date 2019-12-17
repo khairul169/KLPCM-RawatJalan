@@ -15,22 +15,22 @@ setlocale(LC_ALL, 'id');
     </p>
 
     <div class="table-responsive">
-      <table class="table table-hover text-center text-nowrap">
+      <table class="table table-hover text-center text-nowrap mb-0">
         <thead class="stylish-color text-white">
           <tr>
             <th scope="col" rowspan="2" class="align-middle">No</th>
             <th scope="col" rowspan="2" class="align-middle">Tanggal</th>
-            <th scope="col" colspan="4">Bulan</th>
-            <th scope="col" colspan="2">Mutu</th>
+            <th scope="col" colspan="4" class="py-2 align-middle">Bulan</th>
+            <th scope="col" colspan="2" class="py-2 align-middle">Mutu</th>
             <th scope="col" rowspan="2" class="align-middle">Lainnya</th>
           </tr>
           <tr class="stylish-color-dark">
-            <th scope="col">Lengkap</th>
-            <th scope="col">Tidak Lengkap</th>
-            <th scope="col">Jumlah</th>
-            <th scope="col">Mutu</th>
-            <th scope="col">Lengkap</th>
-            <th scope="col">Tidak Lengkap</th>
+            <th scope="col" class="py-2 align-middle">Lengkap</th>
+            <th scope="col" class="py-2 align-middle">Tidak Lengkap</th>
+            <th scope="col" class="py-2 align-middle">Jumlah</th>
+            <th scope="col" class="py-2 align-middle">Mutu</th>
+            <th scope="col" class="py-2 align-middle">Lengkap</th>
+            <th scope="col" class="py-2 align-middle">Tidak Lengkap</th>
           </tr>
         </thead>
         <tbody>
@@ -46,6 +46,7 @@ setlocale(LC_ALL, 'id');
               <td><?php echo number_format($item->mutu, 1, ',', ''); ?></td>
               <td><?php echo number_format($item->mutu, 1, ',', ''); ?></td>
               <td><?php echo number_format($item->mutu_tl, 1, ',', ''); ?></td>
+              <td></td>
             </tr>
           <?php } ?>
         </tbody>
@@ -54,3 +55,13 @@ setlocale(LC_ALL, 'id');
 
   </div>
 </div>
+
+<div class="d-flex justify-content-end">
+  <button type="button" class="btn btn-primary m-0" id="print-btn"><i class="fa fa-print mr-3"></i>Print</button>
+</div>
+
+<script>
+  $('#print-btn').on('click', function() {
+    window.print();
+  })
+</script>

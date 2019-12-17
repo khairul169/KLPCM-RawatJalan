@@ -19,9 +19,8 @@ setlocale(LC_ALL, 'id');
         <thead class="stylish-color text-white">
           <tr>
             <th scope="col">No</th>
-            <th scope="col">Tanggal</th>
             <th scope="col">No. RM</th>
-            <th scope="col">DPJP</th>
+            <th scope="col">PPA</th>
             <th scope="col">Poli</th>
             <th scope="col">Jenis RM</th>
             <th scope="col">Total Indikator</th>
@@ -44,7 +43,6 @@ setlocale(LC_ALL, 'id');
               <th scope="row">
                 <?php echo $item->nomor; ?>
               </th>
-              <td><?php echo $item->tanggal; ?></td>
               <td><?php echo $item->no_rm; ?></td>
               <td><?php echo $item->nama_dokter; ?></td>
               <td><?php echo $item->nama_poli; ?></td>
@@ -70,8 +68,16 @@ setlocale(LC_ALL, 'id');
   </div>
 </div>
 
+<div class="d-flex justify-content-end">
+  <button type="button" class="btn btn-primary m-0" id="print-btn"><i class="fa fa-print mr-3"></i>Print</button>
+</div>
+
 <script>
   $('tr[data-href]').on("click", function() {
     document.location = $(this).data('href');
   });
+
+  $('#print-btn').on('click', function() {
+    window.print();
+  })
 </script>
