@@ -1,6 +1,5 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-setlocale(LC_ALL, 'id');
 ?>
 <!-- Heading -->
 <div class="card mb-4 wow fadeIn d-flex">
