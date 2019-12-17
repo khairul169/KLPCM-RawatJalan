@@ -44,8 +44,6 @@ class Rm_model extends CI_Model
         $this->poli = $post['poli'];
         $this->jenis_rm = $post['jenis_rm'];
 
-        echo $this->tanggal;
-
         $this->identitas = !empty($post['identitas']) ? 1 : 0;
         $this->anamnesa = !empty($post['anamnesa']) ? 1 : 0;
         $this->pemeriksaan = !empty($post['pemeriksaan']) ? 1 : 0;
