@@ -48,6 +48,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
               <td></td>
             </tr>
           <?php } ?>
+          <tr class="green accent-4 text-white">
+            <td></td>
+            <td>Jumlah</td>
+            <td><?php echo $jumlah['lengkap']; ?></td>
+            <td><?php echo $jumlah['tidak_lengkap']; ?></td>
+            <td><?php echo $jumlah['lengkap'] + $jumlah['tidak_lengkap']; ?></td>
+            <td><?php echo number_format($jumlah['mutu'], 1, ',', ''); ?></td>
+            <td><?php echo number_format($jumlah['mutu'], 1, ',', ''); ?></td>
+            <td><?php echo number_format($jumlah['mutu_tl'], 1, ',', ''); ?></td>
+            <td></td>
+          </tr>
         </tbody>
       </table>
     </div>
