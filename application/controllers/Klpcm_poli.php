@@ -92,6 +92,6 @@ class Klpcm_poli extends CI_Controller
 	public function remove($id = 0)
 	{
 		$this->rm_model->remove($id);
-		redirect('klpcm_poli');
+		redirect('laporan_harian');
 	}
 }
