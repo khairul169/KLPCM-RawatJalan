@@ -21,20 +21,6 @@ class Rm_model extends CI_Model
     public $indikator;
     public $kelengkapan;
 
-    // Ambil semua data
-    public function fetchAll()
-    {
-        $this->db->select('rm.*, dpjp.nama_dokter, poli.nama as nama_poli');
-        $this->db->from($this->_table . ' rm');
-        $this->db->join('dpjp', 'rm.dpjp = dpjp.id', 'left');
-        $this->db->join('poli', 'rm.poli = poli.id', 'left');
-        $this->db->where("FROM_UNIXTIME(rm.tanggal,'%e-%Y-%m')", strftime('%e-%Y-%m'));
-        $this->db->order_by('rm.tanggal desc, rm.id desc');
-        $this->db->limit(100);
-        $result = $this->db->get()->result();
-        return $result;
-    }
-
     public function getById($id)
     {
         return $this->db->get_where($this->_table, ['id' => $id])->row();
@@ -107,6 +93,20 @@ class Rm_model extends CI_Model
         $id = $post['update'];
         $this->db->update($this->_table, $this, ['id' => $id]);
         return $id;
+    }
+
+    // Ambil data harian
+    public function fetchDaily()
+    {
+        $this->db->select('rm.*, dpjp.nama_dokter, poli.nama as nama_poli');
+        $this->db->from($this->_table . ' rm');
+        $this->db->join('dpjp', 'rm.dpjp = dpjp.id', 'left');
+        $this->db->join('poli', 'rm.poli = poli.id', 'left');
+        $this->db->where("FROM_UNIXTIME(rm.tanggal,'%e-%Y-%m')", strftime('%e-%Y-%m'));
+        $this->db->order_by('rm.tanggal desc, rm.id desc');
+        $this->db->limit(100);
+        $result = $this->db->get()->result();
+        return $result;
     }
 
     // Ambil data bulanan

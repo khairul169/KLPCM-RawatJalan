@@ -16,7 +16,7 @@ class Laporan_harian extends CI_Controller
 			return;
 		}
 
-		$items = $this->rm_model->fetchAll();
+		$items = $this->rm_model->fetchDaily();
 		$nomor = 1;
 
 		foreach ($items as $item) {
