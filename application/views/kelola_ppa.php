@@ -51,11 +51,15 @@ setlocale(LC_ALL, 'id');
 <!-- Heading -->
 <div class="card mb-4 wow fadeIn d-flex">
 
-  <!-- Card header -->
-  <div class="card-header text-center">Kelola Profesional Pemberi Asuhan</div>
-
   <!--Card content-->
   <div class="card-body p-0">
+
+    <div class="d-flex p-3 align-items-stretch">
+      <p class="col font-weight-light text-center my-2">
+        Kelola Profesional Pemberi Asuhan (PPA)
+      </p>
+      <button type="button" class="btn btn-primary btn-sm m-0" data-toggle="modal" data-target="#modal-add-ppa">Tambah PPA</button>
+    </div>
 
     <table class="table table-hover text-center text-nowrap mb-0" style="border-bottom: 1px solid #ddd;">
       <thead class="stylish-color text-white">
@@ -85,10 +89,6 @@ setlocale(LC_ALL, 'id');
         <?php } ?>
       </tbody>
     </table>
-
-    <div class="d-flex justify-content-end p-3">
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-add-ppa">Tambah PPA</button>
-    </div>
   </div>
 </div>
 
