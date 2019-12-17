@@ -43,8 +43,8 @@ class Laporan_bulanan extends CI_Controller
 			$mutuTl_num += 1;
 		}
 
-		$jumlah['mutu'] = ($mutu_total) / $mutu_num;
-		$jumlah['mutu_tl'] = ($mutuTl_total) / $mutuTl_num;
+		$jumlah['mutu'] = $mutu_num ? ($mutu_total) / $mutu_num : 0.0;
+		$jumlah['mutu_tl'] = $mutuTl_num ? ($mutuTl_total) / $mutuTl_num : 0.0;
 
 		$data = [
 			'items' => $items,
