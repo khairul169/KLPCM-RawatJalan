@@ -100,7 +100,7 @@ class Rm_model extends CI_Model
         $this->db->from($this->_table . ' rm');
         $this->db->join('dpjp', 'rm.dpjp = dpjp.id', 'left');
         $this->db->join('poli', 'rm.poli = poli.id', 'left');
-        $this->db->where("FROM_UNIXTIME(rm.tanggal,'%e-%Y-%m')", strftime('%e-%Y-%m'));
+        $this->db->where("DATE(rm.tanggal) = CURDATE()");
         $this->db->order_by('rm.tanggal desc, rm.id desc');
         $this->db->limit(100);
         $result = $this->db->get()->result();
